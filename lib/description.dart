@@ -16,9 +16,15 @@ class Description extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(10.0),
-          child: Center(
-              child:
-                  Text(description, style: GoogleFonts.roboto(fontSize: 25.0))),
+          child: Expanded(
+           
+            child: Center(
+              child: Card(
+                elevation: 3,
+                child: Text(description, style: GoogleFonts.workSans(color: Colors.black),),
+              ),
+            ),
+          )
         ),
       ),
     );

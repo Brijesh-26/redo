@@ -21,7 +21,8 @@ class _Add_TaskState extends State<Add_Task> {
   submitTaskToDB() async {
     FirebaseAuth auth = FirebaseAuth.instance;
 
-    String? uid =  auth.currentUser?.uid;  // bc iss pr 2 ghnte barbaad kiya chutiya error
+    String? uid =
+        auth.currentUser?.uid; // bc iss pr 2 ghnte barbaad kiya chutiya error
     // String uid = user.uid;
 
     var time = DateTime.now();
@@ -51,7 +52,8 @@ class _Add_TaskState extends State<Add_Task> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('add task'),
+          title: const Text('Takkss..'),
+          centerTitle: true,
           backgroundColor: Color.fromARGB(211, 57, 56, 56),
         ),
         body: Padding(
@@ -72,7 +74,7 @@ class _Add_TaskState extends State<Add_Task> {
               ),
               Container(
                 child: TextField(
-                  maxLines: 3,
+                    maxLines: 3,
                     controller: descController,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -84,12 +86,27 @@ class _Add_TaskState extends State<Add_Task> {
                 height: 20.0,
               ),
               Container(
+                width: MediaQuery.of(context).size.width * .89,
+                height: MediaQuery.of(context).size.height * .065,
                 child: ElevatedButton(
-                  
+                    style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(255, 177, 175, 175),
+                      onPrimary: Colors.black87,
+                      elevation: 6.0,
+                      shadowColor: Colors.black,
+                    ),
                     onPressed: () {
+                      print('start');
                       submitTaskToDB();
+                      print('end');
                     },
-                    child: Text('save')),
+                    child: Text(
+                      'save',
+                      style: GoogleFonts.workSans(
+                          color: Colors.black,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold),
+                    )),
               ),
             ],
           ),
